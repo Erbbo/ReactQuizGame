@@ -1,29 +1,25 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import './css/style.css';
-import { Input, ButtonInput, FormControls, ListGroup, ListGroupItem, Label } from 'react-bootstrap';
+import { Input, ButtonInput, FormControls, Label } from 'react-bootstrap';
 import Nav from './NavBar';
 import Enums from './CommonEnums';
+import TodoList from './TodoList';
 
 export default class TodoItem extends React.Component {
   constructor(props) {
   	super(props);
-    this.state = { 
-      todoItem: {
-        id: 0,
-        value: '',
-        item: [],
-        keyCode: 0
-      }
-    };
-
-    this.increment = this.increment.bind(this);
+    this.state = {
+      value: '',
+      keyCode: 0,
+      items: []
+    }
   }
 
-  validationState() {
-    let length = this.state.todoItem.value.length;
+/*  validationState() {
+    let length = this.state.todoItem[0].value.length;
     if (Enums.keyCodeEnter) return 'success';
-  }
+  }*/
 
   handleChange() {
     let input = this.refs.input.getValue();
@@ -33,9 +29,9 @@ export default class TodoItem extends React.Component {
   }
 
   add(item) {
-   let newItem = this.state.item.slice();
+   let newItem = this.state.items.slice();
    newItem.push(item);
-   this.setState({ item: newItem })
+   this.setState({ items: newItem })
   }
 
   save(event) {
@@ -43,40 +39,19 @@ export default class TodoItem extends React.Component {
     if (input && event.keyCode === Enums.keyCodeEnter) {
       this.add(input);
     }
-    console.log(this.state.id);
-  }
-
-  increment() {
-    this.state.id = this.state.id + 1;
-  }
-
-  delete(todoItem) {
-    var i = this.state.item.indexOf(0);
-    console.log(this.state.item);
-    if(i != -1) {
-      this.state.item.splice(i, 1);
-    }
-    console.log(this.state.item);
   }
 
    render() {
-    let items = this.state.item;
+    let items = this.state.items;
     return (
       <div>
        <Nav />
-       <ListGroup>
-         {items && items.map(item => 
-          <ListGroupItem key={this.increment()} onClick={this.delete.bind(this)}>
-            <Label bsStyle="primary">
-              {item}
-            </Label>
-          </ListGroupItem>)}
-       </ListGroup>
+       <TodoList items={items}/>
        <Input
         type="text"
         value={this.state.value}
         placeholder="Enter text"
-        bsStyle={this.validationState()}
+       /* bsStyle={this.validationState()}*/
         hasFeedback
         ref="input"
         groupClassName="group-class"
