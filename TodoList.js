@@ -28,13 +28,13 @@ export default class TodoList extends React.Component {
       <div>
        <ListGroup>
          {items && items.map(item => 
-          <ListGroupItem key={this.increment(item)}>
+          <ListGroupItem key={items.indexOf(item)}>
               <h1 bsStyle="info">
                 {item + '    '}
                 <Button 
                   bsStyle="danger" 
                   bsSize="small" 
-                  onClick={this.remove.bind(this, item)}>
+                  onClick={this.remove.bind(this, items.indexOf(item))}>
                     Delete
                 </Button>
               </h1>
