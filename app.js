@@ -47,18 +47,20 @@ export default class TodoItem extends React.Component {
       <div>
        <Nav />
        <TodoList items={items}/>
-       <Input
-        type="text"
-        value={this.state.value}
-        placeholder="Enter text"
-       /* bsStyle={this.validationState()}*/
-        hasFeedback
-        ref="input"
-        groupClassName="group-class"
-        labelClassName="label-class"
-        onChange={this.handleChange.bind(this)}
-        onKeyDown={this.save.bind(this)}>
+       <div>
+        <Input
+          type="text"
+          value={this.state.value}
+          placeholder="Enter text"
+          /* bsStyle={this.validationState()}*/
+          hasFeedback
+          ref="input"
+          groupClassName="group-class"
+          labelClassName="label-class"
+          onChange={this.handleChange.bind(this)}
+          onKeyDown={this.save.bind(this)}>
         </Input>
+       </div>
       </div>
     )
    };
