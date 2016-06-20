@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Erbbo/ReactQuizGame.git"
+    "url": "git+https://github.com/Erbbo/ReactTodo.git"
   },
   "keywords": [
     "react"
@@ -16,9 +16,9 @@
   "author": "Eric",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Erbbo/ReactQuizGame/issues"
+    "url": "https://github.com/Erbbo/ReactTodo/issues"
   },
-  "homepage": "https://github.com/Erbbo/ReactQuizGame#readme",
+  "homepage": "https://github.com/Erbbo/ReactTodo#readme",
   "dependencies": {
     "webpack": "^1.12.12",
     "react": "^15.1.0"
