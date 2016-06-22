@@ -4,4 +4,4 @@ You can add, remove, and edit todo items.
 
   - npm install
 
-A local change revert to README.txt 
+A local change to README.txt 
